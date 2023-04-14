@@ -1,0 +1,17 @@
+<form method="POST" enctype="multipart/form-data">
+    Security Token 
+    {% csrf_token %}
+     Using the Formset 
+    {{ introFORM.as_p }}
+    {{ eduFORM.as_p }}
+    {{ expFORM.as_p }}
+    {{ projectFORM.as_p }}
+    
+    <h2>Skill Form 1</h2>
+    {{ skillFORM.as_p }}
+    <h2>Skill Form 2</h2>
+    {{ skillFORM.as_p }}
+    <h2>Skill Form 3</h2>
+    {{ skillFORM.as_p }}
+    <input type="submit" value="SUBMIT">
+</form>
