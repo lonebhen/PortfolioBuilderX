@@ -25,27 +25,28 @@ class User(AbstractUser):
 
 class InformationModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    fullname = models.CharField(max_length=50, blank=True, null=True)
+    firstName = models.CharField(max_length=50, blank=True, null=True)
+    lastName = models.CharField(max_length=50, blank=True, null=True)
     bio = models.CharField(max_length=50, blank=True, null=True)
     about = models.TextField(blank=True, null=True)
     address = models.CharField(max_length=100, blank=True, null=True)
     email= models.EmailField(max_length=100, blank=True, null=True)
     phone = models.CharField(max_length=50, blank=True, null=True)
-    avatar = models.ImageField(upload_to="avatar/", blank=True, null=True)
-    cv = models.FileField(upload_to="cv/", blank=True, null=True)
+    # avatar = models.ImageField(upload_to="avatar/", blank=True, null=True)
+    CV = models.FileField(upload_to="cv/", blank=True, null=True)
 
 
 
     facebook = models.URLField(blank=True, null=False)
     instagram = models.URLField(blank=True, null=False)
-    snapchat = models.URLField(blank=True, null=False)
+    # snapchat = models.URLField(blank=True, null=False)
     github = models.URLField(blank=True, null=False)
     linkedin = models.URLField(blank=True, null=False)
     other = models.URLField(blank=True, null=False)
 
 
     def __str__(self):
-        return self.fullname
+        return self.firstName
     
 
 class EducationModel(models.Model):
