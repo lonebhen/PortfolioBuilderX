@@ -103,13 +103,13 @@ class ProjectModel(models.Model):
     slug = models.SlugField(max_length=500, blank=True, null=True)
     imagelink = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=False)
-    project_ratings = models.CharField(choices=Ratings_range, default='3', max_length=10)
+    projectRatings = models.CharField(choices=Ratings_range, default='3', max_length=10)
     demo = models.URLField(blank=True, null=False)
-    github_link = models.URLField(blank=True, null=True)
+    github_project= models.URLField(blank=True, null=True)
 
 
     class Meta:
-        ordering = ['-project_ratings']
+        ordering = ['-projectRatings']
 
 
     def __str__(self):
