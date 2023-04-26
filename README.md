@@ -2,7 +2,7 @@
 
 The goal of this project is to create a Portfolio Site for users. The site will allow users to sign up and enter their details, which will then be displayed in a visually appealing way. Users will also have access to an API for their information.
 
-The project includes CRUD (Create/Retrieve/Update/Delete) functionality, which allows users to manage and update their information as needed. It is important to note that this project is not intended to be a social network or e-commerce site.
+The project includes CRUD (Create/Retrieve/Update/Delete) functionality, which allows users to manage and update their information as needed. 
 
 The application utilizes Django on the backend, including 6 models, and Javascript for the front-end. It is also designed to be mobile-responsive.
 
