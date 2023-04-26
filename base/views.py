@@ -736,32 +736,6 @@ def skillset_deleteView(request, id, *args, **kwargs):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def login_view(request, *args, **kwargs): 
     if request.method == "POST":
         #Attempt the user to sign in
