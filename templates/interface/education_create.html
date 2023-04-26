@@ -35,7 +35,7 @@
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100">
                     {% render_field eduFORM.year class="input100" type="text" name="year" placeholder="2021" %}
-                    <!-- <input  {% if eduFORM.the_year.is_bound %} value="{{ eduFORM.the_year.value }}" {% endif %}> -->
+                    <!-- <input  {% if eduFORM.year.is_bound %} value="{{ eduFORM.year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in eduFORM.year.errors %}
                         <span class="text-danger ml-2">{{ error }}</span>
