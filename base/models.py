@@ -4,7 +4,7 @@ import re
 
 # Create your models here.
 
-Ratings_range = [
+Rating_range = [
     ('1', '1'),
     ('2', '2'),
     ('3', '3'),
@@ -34,6 +34,7 @@ class InformationModel(models.Model):
     phone = models.CharField(max_length=50, blank=True, null=True)
     # avatar = models.ImageField(upload_to="avatar/", blank=True, null=True)
     CV = models.FileField(upload_to="cv/", blank=True, null=True)
+    fewWords = models.CharField(max_length = 500, blank = True, null = True)
 
 
 
@@ -43,6 +44,14 @@ class InformationModel(models.Model):
     github = models.URLField(blank=True, null=False)
     linkedin = models.URLField(blank=True, null=False)
     other = models.URLField(blank=True, null=False)
+
+
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(InformationModel,self).save(**kwargs)
 
 
     def __str__(self):
@@ -60,6 +69,13 @@ class EducationModel(models.Model):
     class Meta:
         ordering = ['-year']
 
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(EducationModel, self).save(**kwargs)
+
 
     def __str__(self):
         return f"{self.user} => {self.title} from {self.institute}"
@@ -76,6 +92,14 @@ class ExperienceModel(models.Model):
     class Meta:
         ordering = ['-year']
 
+    
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(ExperienceModel, self).save(**kwargs)
+
 
     def __str__(self):
         return f"{self.user} => {self.title} from {self.institute}"
@@ -86,11 +110,19 @@ class SkillSetModel(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
     imagelink = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=False)
-    skillrank = models.CharField(choices=Ratings_range, default='2', max_length=10)
+    skillrank = models.CharField(choices=Rating_range, default='3', max_length=10)
 
 
     class Meta:
         ordering = ['-skillrank']
+
+
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(SkillSetModel, self).save(**kwargs)
 
 
     def __str__(self):
@@ -100,29 +132,36 @@ class SkillSetModel(models.Model):
 class ProjectModel(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True, null=True)
-    slug = models.SlugField(max_length=500, blank=True, null=True)
+    # slug = models.SlugField(max_length=500, blank=True, null=True)
     imagelink = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=False)
-    projectRatings = models.CharField(choices=Ratings_range, default='3', max_length=10)
+    projectRating = models.CharField(choices=Rating_range, default='3', max_length=10)
     demo = models.URLField(blank=True, null=False)
     github_project= models.URLField(blank=True, null=True)
 
 
     class Meta:
-        ordering = ['-projectRatings']
+        ordering = ['-projectRating']
 
 
     def __str__(self):
         return f"{self.user} => {self.title}"
     
 
-    def get_project_absolute_url(self):
-        return "/projects/{}".format(self.slug)
+    # def get_project_absolute_url(self):
+    #     return "/projects/{}".format(self.slug)
     
 
-    def save(self, *args, **kwargs):
-        self.slug = self.slug_generate()
-        super(ProjectModel, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.slug = self.slug_generate()
+    #     super(ProjectModel, self).save(*args, **kwargs)
+
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(ProjectModel, self).save(**kwargs)
 
     def slug_generate(self):
         slug = self.title.strip()
@@ -143,6 +182,14 @@ class MessageModel(models.Model):
 
     class Meta:
         ordering = ['-send_time']
+
+
+    def save(self, **kwargs):
+        if kwargs.__contains__('request') and self.user is None:
+            request = kwargs.pop('request')
+            self.user = request.user
+
+        super(MessageModel, self).save(**kwargs)
 
 
     def __str__(self):
