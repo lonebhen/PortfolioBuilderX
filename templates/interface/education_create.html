@@ -34,10 +34,10 @@
                 <!-- YEAR -->
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100">
-                    {% render_field eduFORM.year class="input100" type="text" name="year" placeholder="2021" %}
-                    <!-- <input  {% if eduFORM.year.is_bound %} value="{{ eduFORM.year.value }}" {% endif %}> -->
+                    {% render_field eduFORM.the_year class="input100" type="text" name="the_year" placeholder="2021" %}
+                    <!-- <input  {% if eduFORM.the_year.is_bound %} value="{{ eduFORM.the_year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
-                    {% for error in eduFORM.year.errors %}
+                    {% for error in eduFORM.the_year.errors %}
                         <span class="text-danger ml-2">{{ error }}</span>
                     {% endfor %}
                 </div>
@@ -163,3 +163,4 @@
     });
   </script>
 {% endblock %}
+

@@ -26,8 +26,8 @@ class IntroForm(ModelForm):
 class EducationForm(forms.ModelForm):
     class Meta:
         model = EducationModel
-        fields = ["title", "year", "institute", "description"]
-        labels = {'title': 'Level of Education', 'year': "Year", 'institute': "Institute" }
+        fields = ["title", "the_year", "institute", "description"]
+        labels = {'title': 'Level of Education', 'the_year': "Year", 'institute': "Institute" }
 
     def save(self, commit = True, *args, **kwargs):
         request = None
@@ -45,8 +45,8 @@ class EducationForm(forms.ModelForm):
 class ExperienceForm(forms.ModelForm):
     class Meta:
         model = ExperienceModel
-        fields = ["title", "year", "institute", "description"]
-        labels = {'title': 'Position', 'year': "Year", 'institute': "Company Name" }
+        fields = ["title", "the_year", "institute", "description"]
+        labels = {'title': 'Position', 'the_year': "Year", 'institute': "Company Name" }
 
 
     def save(self, commit = True, *args, **kwargs):

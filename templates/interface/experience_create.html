@@ -36,11 +36,11 @@
                 <!-- YEAR -->
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100 validate-input">
-                    {% render_field expFORM.year class="input100" type="text" name="year" placeholder="2021" %}
+                    {% render_field expFORM.the_year class="input100" type="text" name="the_year" placeholder="2021" %}
 
                     <!-- <input class="input100" type="text" name="the_year" placeholder="2021" {% if expFORM.the_year.is_bound %} value="{{ expFORM.the_year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
-                    {% for error in expFORM.year.errors %}
+                    {% for error in expFORM.the_year.errors %}
                         <span class="text-danger ml-2">{{ error }}</span>
                     {% endfor %}
                 </div>
@@ -169,3 +169,4 @@
     });
   </script>
 {% endblock %}
+

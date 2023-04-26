@@ -24,7 +24,7 @@ class User(AbstractUser):
 
 
 class InformationModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     firstName = models.CharField(max_length=50, blank=True, null=True)
     lastName = models.CharField(max_length=50, blank=True, null=True)
     bio = models.CharField(max_length=50, blank=True, null=True)
@@ -59,15 +59,15 @@ class InformationModel(models.Model):
     
 
 class EducationModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True, null=True)
-    year = models.CharField(max_length=10, blank=True, null=True)
+    the_year = models.CharField(max_length=10, blank=True, null=True)
     institute = models.CharField(max_length=50, blank = True, null=True)
     description = models.TextField(blank=True, null=False)
 
 
     class Meta:
-        ordering = ['-year']
+        ordering = ['-the_year']
 
     def save(self, **kwargs):
         if kwargs.__contains__('request') and self.user is None:
@@ -82,15 +82,15 @@ class EducationModel(models.Model):
     
 
 class ExperienceModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True, null=True)
-    year = models.CharField(max_length=10, blank=True, null=True)
+    the_year = models.CharField(max_length=10, blank=True, null=True)
     institute = models.CharField(max_length=50, blank = True, null=True)
     description = models.TextField(blank=True, null=False)
 
 
     class Meta:
-        ordering = ['-year']
+        ordering = ['-the_year']
 
     
     def save(self, **kwargs):
@@ -106,7 +106,7 @@ class ExperienceModel(models.Model):
     
 
 class SkillSetModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True, null=True)
     imagelink = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=False)
@@ -130,12 +130,12 @@ class SkillSetModel(models.Model):
 
 
 class ProjectModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=50, blank=True, null=True)
     # slug = models.SlugField(max_length=500, blank=True, null=True)
     imagelink = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=False)
-    projectRating = models.CharField(choices=Rating_range, default='3', max_length=10)
+    projectRating = models.CharField(choices=Rating_range, default='2', max_length=10)
     demo = models.URLField(blank=True, null=False)
     github_project= models.URLField(blank=True, null=True)
 
@@ -156,12 +156,12 @@ class ProjectModel(models.Model):
     #     self.slug = self.slug_generate()
     #     super(ProjectModel, self).save(*args, **kwargs)
 
-    def save(self, **kwargs):
+    def save(self,*args, **kwargs):
         if kwargs.__contains__('request') and self.user is None:
             request = kwargs.pop('request')
             self.user = request.user
 
-        super(ProjectModel, self).save(**kwargs)
+        super(ProjectModel, self).save(*args, **kwargs)
 
     def slug_generate(self):
         slug = self.title.strip()
@@ -171,7 +171,7 @@ class ProjectModel(models.Model):
 
 
 class MessageModel(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default=None, blank=True, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=120, blank=True, null=False)
     email = models.EmailField(max_length=45, blank=False, null=False)
     message = models.TextField(blank=False, null=False)
