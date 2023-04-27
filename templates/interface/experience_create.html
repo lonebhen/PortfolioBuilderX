@@ -36,7 +36,7 @@
                 <!-- YEAR -->
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100 validate-input">
-                    {% render_field expFORM.the_year class="input100" type="text" name="the_year" placeholder="2021" %}
+                    {% render_field expFORM.the_year class="input100" type="text" name="the_year" placeholder="2023" %}
 
                     <!-- <input class="input100" type="text" name="the_year" placeholder="2021" {% if expFORM.the_year.is_bound %} value="{{ expFORM.the_year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
@@ -48,7 +48,7 @@
                 <!-- Name of Institute -->
                 <label class="label-input100" for="first-name">Company Name  *</label>
                 <div class="wrap-input100">
-                    {% render_field expFORM.institute class="input100" type="text" name="institute" placeholder="Microsoft" %}
+                    {% render_field expFORM.institute class="input100" type="text" name="institute" placeholder="Amazon" %}
                     <!-- <input class="input100" type="text" name="institute" placeholder="Microsoft" {% if expFORM.institute.is_bound %} value="{{ expFORM.institute.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in expFORM.institute.errors %}

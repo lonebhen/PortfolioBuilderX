@@ -25,7 +25,7 @@
                 <!-- TITLE  -->
                 <label class="label-input100" for="first-name">Project Name*</label>
                 <div class="wrap-input100">
-                    {% render_field projectFORM.title id="first-name" class="input100" type="text" name="title" placeholder="Todo App" %}
+                    {% render_field projectFORM.title id="first-name" class="input100" type="text" name="title" placeholder="Ecommerce App" %}
                     <!-- <input  {% if projectFORM.title.is_bound %} value="{{ projectFORM.title.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in projectFORM.title.errors %}
@@ -78,7 +78,7 @@
                 </div>
 
                 <!-- Project Rating  -->
-                <label class="label-input100" for="first-name">Rate Your Project</label>
+                <label class="label-input100" for="first-name">Rate Your Project OUT OF 10</label>
                 <div>
                     {% render_field projectFORM.projectRating %}
                     <!-- <input id="first-name" class="input100" type="text" name="title" placeholder="Portfolio Maker" {% if projectFORM.title.is_bound %} value="{{ projectFORM.title.value }}" {% endif %}> -->

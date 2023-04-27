@@ -81,7 +81,7 @@
                 <!-- SHORT BIO -->
                 <label class="label-input100" for="message">BIO *</label>
                 <div class="wrap-input100 validate-input">
-                    {% render_field introFORM.bio id="message" class="input100" name="bio" rows="2" placeholder="Please enter details about yourself within 500 characters" %}
+                    {% render_field introFORM.bio id="message" class="input100" name="bio" rows="2" placeholder="Please enter short details about yourself " %}
                     <!-- <textarea id="message" class="input100" name="bio" rows="5" placeholder="Please enter details about yourself within 500 characters" {% if introFORM.bio.is_bound %} value="{{ introFORM.bio.value }}" {% endif %}></textarea> -->
                     <span class="focus-input100"></span>
                     {% for error in introFORM.bio.errors %}
@@ -117,7 +117,7 @@
                 <!-- <label class="label-input100" for="phone">Phone Number</label> -->
                 <div class="wrap-input100 rs1 validate-input">
                     <!-- <small>{{ introFORM.phone.label }}</small> -->
-                    {% render_field introFORM.phone id="phone" class="input100" type="text" name="phone" placeholder=" Phone: Eg +1 800 00000" %}
+                    {% render_field introFORM.phone id="phone" class="input100" type="text" name="phone" placeholder=" Phone: Eg +233 *** *** ***" %}
                     <!-- <input id="phone" class="input100" type="text" name="phone" placeholder="Phone. +1 800 00000" {% if introFORM.phone.is_bound %} value="{{ introFORM.phone.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in introFORM.phone.errors %}
@@ -205,7 +205,7 @@
                 <!-- TITLE -->
                 <label class="label-input100" for="first-name">Level of Education*</label>
                 <div class="wrap-input100">
-                    {% render_field eduFORM.title id="first-name" class="input100" type="text" name="title" placeholder="Highschool" %}
+                    {% render_field eduFORM.title id="first-name" class="input100" type="text" name="title" placeholder="High School" %}
                     <!-- <input id="first-name" class="input100" type="text" name="title" placeholder="Bachelor/ Highschool" {% if eduFORM.title.is_bound %} value="{{ eduFORM.title.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in eduFORM.title.errors %}
@@ -215,7 +215,7 @@
                 <!-- YEAR -->
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100">
-                    {% render_field eduFORM.the_year class="input100" type="text" name="the_year" placeholder="2021" %}
+                    {% render_field eduFORM.the_year class="input100" type="text" name="the_year" placeholder="2023" %}
                     <!-- <input  {% if eduFORM.the_year.is_bound %} value="{{ eduFORM.the_year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in eduFORM.the_year.errors %}
@@ -226,7 +226,7 @@
                 <!-- Name of Institute -->
                 <label class="label-input100" for="first-name">Institution Name  *</label>
                 <div class="wrap-input100">
-                    {% render_field eduFORM.institute class="input100" type="text" name="institute" placeholder="Harvard" %}
+                    {% render_field eduFORM.institute class="input100" type="text" name="institute" placeholder="KNUST" %}
                     <!-- <input  {% if eduFORM.institute.is_bound %} value="{{ eduFORM.institute.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in eduFORM.institute.errors %}
@@ -270,7 +270,7 @@
                 <!-- YEAR -->
                 <label class="label-input100" for="first-name">Year  *</label>
                 <div class="wrap-input100 validate-input">
-                    {% render_field expFORM.the_year class="input100" type="text" name="the_year" placeholder="2021" %}
+                    {% render_field expFORM.the_year class="input100" type="text" name="the_year" placeholder="2023" %}
 
                     <!-- <input class="input100" type="text" name="the_year" placeholder="2021" {% if expFORM.the_year.is_bound %} value="{{ expFORM.the_year.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
@@ -282,7 +282,7 @@
                 <!-- Name of Institute -->
                 <label class="label-input100" for="first-name">Company Name  *</label>
                 <div class="wrap-input100">
-                    {% render_field expFORM.institute class="input100" type="text" name="institute" placeholder="Microsoft" %}
+                    {% render_field expFORM.institute class="input100" type="text" name="institute" placeholder="Amazon" %}
                     <!-- <input class="input100" type="text" name="institute" placeholder="Microsoft" {% if expFORM.institute.is_bound %} value="{{ expFORM.institute.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in expFORM.institute.errors %}
@@ -316,7 +316,7 @@
                 <!-- TITLE  -->
                 <label class="label-input100" for="first-name">Project Name*</label>
                 <div class="wrap-input100">
-                    {% render_field projectFORM.title id="first-name" class="input100" type="text" name="title" placeholder="Todo App" %}
+                    {% render_field projectFORM.title id="first-name" class="input100" type="text" name="title" placeholder="Ecommerce App" %}
                     <!-- <input  {% if projectFORM.title.is_bound %} value="{{ projectFORM.title.value }}" {% endif %}> -->
                     <span class="focus-input100"></span>
                     {% for error in projectFORM.title.errors %}
