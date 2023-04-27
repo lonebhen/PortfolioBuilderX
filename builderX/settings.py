@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,19 +88,24 @@ EMAIL_USE_TLS = True
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import pymysql
-pymysql.version_info = (1, 4, 6, "final", 0)
-pymysql.install_as_MySQLdb()
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'builderxdb',
-        'USER': 'root',
-        'PASSWORD': os.environ.get('DB_PASS'),
-        'PORT': 3306,
-        'HOST':'127.0.0.1'
+# import pymysql
+# pymysql.version_info = (1, 4, 6, "final", 0)
+# pymysql.install_as_MySQLdb()
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'builderxdb',
+#         'USER': 'root',
+#         'PASSWORD': os.environ.get('DB_PASS'),
+#         'PORT': 3306,
+#         'HOST':'127.0.0.1'
 
-    }
+#     }
+# }
+
+DATABASES = {
+
+    'default': dj_database_url.parse("postgres://portfoliobuilder_user:2UxKFQgBaWUdiwvjNkztg7mc39qcmSx1@dpg-ch56sjtgk4q8pateshrg-a.singapore-postgres.render.com/portfoliobuilder")
 }
 
 
